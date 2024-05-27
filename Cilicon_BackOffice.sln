@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cilicon_BackOffice", "Cilicon_BackOffice\Cilicon_BackOffice\Cilicon_BackOffice.csproj", "{448A95BD-522C-4BE4-A08A-57F9D4A11959}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cilicon_BackOffice.Client", "Cilicon_BackOffice\Cilicon_BackOffice.Client\Cilicon_BackOffice.Client.csproj", "{58AF254C-B291-42E9-A3A0-5039B23CCC53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{448A95BD-522C-4BE4-A08A-57F9D4A11959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448A95BD-522C-4BE4-A08A-57F9D4A11959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448A95BD-522C-4BE4-A08A-57F9D4A11959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448A95BD-522C-4BE4-A08A-57F9D4A11959}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58AF254C-B291-42E9-A3A0-5039B23CCC53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58AF254C-B291-42E9-A3A0-5039B23CCC53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58AF254C-B291-42E9-A3A0-5039B23CCC53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58AF254C-B291-42E9-A3A0-5039B23CCC53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3612D3E-6D57-48D2-A1FD-ABF4520B7AC9}
+	EndGlobalSection
+EndGlobal
