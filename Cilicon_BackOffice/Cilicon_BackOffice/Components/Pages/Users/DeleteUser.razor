@@ -1,0 +1,53 @@
+﻿@page "/deleteuser"
+@inject HttpClient Http
+
+<PageTitle>Delete User</PageTitle>
+
+<h1>Delete User</h1>
+
+<p>Enter the ID of the user you want to delete:</p>
+
+<input @bind="userId" placeholder="User ID" />
+<button @onclick="RemoveUser">Delete User</button>
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <p>@message</p>
+}
+
+@code {
+    private string userId;
+    private string message;
+
+    private async Task RemoveUser()
+    {
+        Console.WriteLine("DeleteUser method called.");
+        if (string.IsNullOrEmpty(userId))
+        {
+            message = "Please enter a user ID.";
+            Console.WriteLine("User ID is empty.");
+            return;
+        }
+
+        try
+        {
+            Console.WriteLine($"Sending DELETE request to API for user ID: {userId}");
+            var response = await Http.DeleteAsync($"http://localhost:7271/api/users/{userId}");
+            if (response.IsSuccessStatusCode)
+            {
+                message = $"User with ID '{userId}' has been deleted successfully.";
+                Console.WriteLine("User deleted successfully.");
+            }
+            else
+            {
+                message = $"Failed to delete user with ID '{userId}'. Status Code: {response.StatusCode}";
+                Console.WriteLine($"Failed to delete user. Status Code: {response.StatusCode}");
+            }
+        }
+        catch (Exception ex)
+        {
+            message = $"An error occurred: {ex.Message}";
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    }
+}
