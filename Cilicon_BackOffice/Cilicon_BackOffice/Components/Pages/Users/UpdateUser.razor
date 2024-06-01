@@ -1,0 +1,56 @@
+﻿@page "/updateuser"
+@inject HttpClient Http
+
+@rendermode InteractiveServer
+
+
+<PageTitle>Update User</PageTitle>
+
+<h1>Update User</h1>
+
+<p>Enter the details of the user you want to update:</p>
+
+<input @bind="user.Email" placeholder="Email" />
+<input @bind="user.FirstName" placeholder="First Name" />
+<input @bind="user.LastName" placeholder="Last Name" />
+
+
+<!-- Add other fields as necessary -->
+<button @onclick="UpdateUserByEmail">Update User</button>
+
+@if (!string.IsNullOrEmpty(message))
+{
+    <p>@message</p>
+}
+
+@code {
+    private User user = new User(); // Assuming User class is already defined
+    private string message;
+
+    private async Task UpdateUserByEmail()
+    {
+        try
+        {
+            var response = await Http.PutAsJsonAsync($"http://localhost:7271/api/users/email/{user.Email}", user); // Update with your Azure Function URL
+            if (response.IsSuccessStatusCode)
+            {
+                message = $"User with email '{user.Email}' has been updated successfully.";
+            }
+            else
+            {
+                message = $"Failed to update user with email '{user.Email}'. Status Code: {response.StatusCode}";
+            }
+        }
+        catch (Exception ex)
+        {
+            message = $"An error occurred: {ex.Message}";
+        }
+    }
+
+    public class User
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+    }
+}
